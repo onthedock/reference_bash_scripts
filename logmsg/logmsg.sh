@@ -43,7 +43,7 @@ logConfig () {
     # Set positional arguments in their proper place
     eval set -- "$PARAMS"
 
-    if [ $mktempDir == "true" ]
+    if [ "$mktempDir" == "true" ]
     then
         logDir=$(mktemp -d)
     elif [ -z "$logDir" ]
