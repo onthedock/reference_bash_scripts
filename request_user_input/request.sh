@@ -27,5 +27,8 @@ request () {
   then
     userinput="$defaultInput"
   fi
+  
+  # Cleanup for safe reuse
+  unset defaultInput
 }
 
