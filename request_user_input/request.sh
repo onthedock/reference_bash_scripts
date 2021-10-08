@@ -2,14 +2,9 @@
 
 # Ask user for input providing default values
 
-# No default value provided
+# Usage:
 # request "Message"
-# echo "userinput"
-
-# Provided default value
-# request "Message" "Default"
-# echo "$userinput"
-
+# request "Message" "defaultValue"
 
 request () {
   promptMessage="$1"
