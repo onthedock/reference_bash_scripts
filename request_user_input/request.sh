@@ -2,6 +2,15 @@
 
 # Ask user for input providing default values
 
+# No default value provided
+# request "Message"
+# echo "userinput"
+
+# Provided default value
+# request "Message" "Default"
+# echo "$userinput"
+
+
 request () {
   promptMessage="$1"
 
@@ -20,6 +29,3 @@ request () {
   fi
 }
 
-request "Message"
-request "Message" "Default"
-echo "$userinput"
