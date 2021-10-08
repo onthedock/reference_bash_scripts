@@ -23,6 +23,10 @@ request () {
     userinput="$defaultInput"
   fi
   
+  # https://stackoverflow.com/a/17336953
+  # Using echo to "return valures" from the function
+  echo "$userinput"
+  
   # Cleanup for safe reuse
   unset defaultInput
 }
