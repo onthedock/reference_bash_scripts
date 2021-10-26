@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source ./logmsg.sh
+source $(dirname $0)/logmsg.sh
 
-logConfig --log-level 0 --make-temp-dir
+logConfig --log-level 2 --make-temp-dir # --log-name "mylog.log"
 
 log "it's working"
 log "information: it works" INFO

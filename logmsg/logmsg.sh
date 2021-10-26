@@ -22,6 +22,16 @@ logConfig () {
                     exit 1
                 fi
                 ;;
+            -ln|--log-name )
+                if [ -n "$2" ] && [ ${2:0:1} != "-" ]
+                then
+                    logName="$2"
+                    shift 2
+                else
+                    echo "Error: Argument for $1 is missing" >&2
+                    exit 1
+                fi
+                ;;            
             -na|--not-all-logs )
                 logAll="false"
                 shift
@@ -30,6 +40,7 @@ logConfig () {
                 mktempDir="true"
                 shift
                 ;;
+
             -*|--*=) # Unsupported flags
                 echo "Error: Unsupported flag $1" >&2
                 exit 1
@@ -51,7 +62,12 @@ logConfig () {
         logDir="."
     fi
 
-    echo "Logging to $logDir/log.log"
+    if [ -z "$logName" ]
+    then
+        logName="$(date +%Y%M%d_%H%m%S).log"
+    fi
+
+    echo "Logging to $logDir/$logName"
 }
 
 
@@ -86,7 +102,7 @@ log () {
 
     if [ "$msgLevel" -le "$logLevel" ]
     then
-        echo -e "[ $_severity ] $(date) $1" | tee -a "$logDir/log.log"
+        echo -e "[ $_severity ] $(date) $1" | tee -a "$logDir/$logName"
     else
         if [ "$logAll" == "true" ]
         then
