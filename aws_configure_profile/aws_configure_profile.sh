@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-_bash_libs="../"
-source "${_bash_libs}request_user_input/request.sh"
+source $(dirname $0)/config
 
 _aws_info (){
     echo "All values are required"
@@ -33,3 +32,5 @@ aws_configure_profile (){
     fi
     echo "Configured profile $awsProfile."
 }
+
+aws_configure_profile
