@@ -106,7 +106,7 @@ log () {
     else
         if [ "$logAll" == "true" ]
         then
-            echo -e "[ $_severity ] $(date) $1 " | tee -a "$logDir/log.log" > /dev/null 
+            echo -e "[ $_severity ] $(date) $1 " | tee -a "$logDir/$logName" > /dev/null 
         fi
     fi
 }
