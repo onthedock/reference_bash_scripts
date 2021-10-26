@@ -1,5 +1,7 @@
 # Parsing CLI arguments
 
+> Este *Script* está pensado como *referencia*, no como una función a importar en otros *scripts*. Cada *script* requiere sus propio conjunto de variables, por lo que se proporciona un parámetro de cada tipo como ejemplo.
+
 Un problema habitual a la hora de crear scripts en BASH es el procesado de los parámetros proporcionados desde la línea de comandos.
 
 El objetivo es poder facilitar los parámetros al script en cualquier orden.
