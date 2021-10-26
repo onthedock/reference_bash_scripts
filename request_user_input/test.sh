@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./request.sh
+source $(dirname $0)/request.sh
 
 # No custom message, no default value
 echo "Output: (no default value) [] ?" 
