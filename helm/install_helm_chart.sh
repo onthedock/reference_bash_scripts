@@ -1,4 +1,4 @@
-function installHelmChart {
+function install_helm_chart {
     helmChart="$1"
     helmRepoChart="$2"
     chartNamespace="$3"

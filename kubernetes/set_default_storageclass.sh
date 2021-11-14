@@ -1,4 +1,4 @@
-function setDefaultStorageClass {
+function set_default_storageclass {
     defaultStorageClass="$1"
     storageClassList=$(kubectl get storageclass -o name | awk -F '/' '{print $2}')
 
