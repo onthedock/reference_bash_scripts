@@ -41,3 +41,36 @@ El script recibe los argumentos ordenados:
 ```bash
 ./script.sh 1 2 3 4 -a --key-value-arg amarillo
 ```
+
+### Parámetros como *array*
+
+El *script* devuelve los parámetros posicionales como un *string*; si queremos que se devuelvan como un *array* de parámetros, podemos usar:
+
+```bash
+function parse_cli_args () {
+    PARAMS=()
+
+    while (( "$#" ))
+    do
+        case "$1" in
+            -s|--sensitive)
+                SENSITIVE="yes"
+                shift
+                ;;
+            -*|--*=) # Unsupported flags
+                echo "Error: Unsupported flag $1" >&2
+                exit 1
+                ;;
+            *) # Preserve positional arguments
+                PARAMS+=("$1")
+                shift
+                ;;
+        esac
+    done
+
+    # Set positional arguments in their proper place
+    eval set -- "$PARAMS"
+}
+```
+
+De esta forma, podemos acceder a los diferentes elementos a través de `"${PARAMS[0]}"`, etc...
