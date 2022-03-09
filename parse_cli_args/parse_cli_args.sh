@@ -5,7 +5,7 @@
 # Explanation of ${2:0:1}, https://unix.stackexchange.com/a/275651 by heemayl
 # Explanation of "-n": Check if the length of a string is nonzero
 
-parse_cli_args () {
+parse_cli_args() {
     PARAMS=""
 
     while (( "$#" ))
@@ -16,7 +16,7 @@ parse_cli_args () {
                 shift
                 ;;
             -b|--key-value-arg)
-                if [ -n "$2" ] && [ ${2:0:1} != "-" ]
+                if [ -n "$2" ] && [ "${2:0:1}" != "-" ]
                 then
                     MY_KEY_VALUE_ARG="$2"
                     shift 2
