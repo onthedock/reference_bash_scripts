@@ -4,7 +4,7 @@
 # With -s|--sensitive, pass the `-s` option to `read` so there is
 # no echo on the terminal (useful for passwords, etc)
 
-function parse_cli_args () {
+function parse_cli_args() {
     PARAMS=()
 
     while (( "$#" ))
@@ -29,7 +29,7 @@ function parse_cli_args () {
     eval set -- "$PARAMS"
 }
 
-function request () {
+function request() {
     parse_cli_args "$@"
 
     msg=${PARAMS[0]}
