@@ -6,7 +6,7 @@
 # request "Message"
 # request "Message" "defaultValue"
 
-request () {
+request() {
   promptMessage="$1"
 
   if [ "$#" -lt 2 ]
