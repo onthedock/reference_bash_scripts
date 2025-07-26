@@ -8,7 +8,7 @@ add_newline() {
     local filename
     filename="${1}"
     filename=${filename:?Cannot be empty}
-    if [[ ! -s $filename ]]; then errcho "'$filename' cannot be an empty file'"; exit 1; fi
+    if [[ ! -s $filename ]]; then echo "'$filename' cannot be an empty file'" >&2; exit 1; fi
     if [[ -n "$(tail -c 1 <"$filename")" ]]; then
         cp "$filename" "${filename}.bkp"    # backup original file (just in case) 
         printf "\n" >> "$filename"
